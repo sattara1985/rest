@@ -2,7 +2,7 @@
 
 module.exports = {
     getUsers: (req, res) => {
-        res.status(200).send(['Usuario Falso','Usuario Falso']);
+        res.status(200).send(['Usuario Falso','Usuario Falso','userControllers']);
       },
     getOneUser: (req, res) => {},
     createUser: (req, res) => {},

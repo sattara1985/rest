@@ -19,14 +19,14 @@ const Routes = require('./routes');
 
 // desde la raiz
 app.get('/', (req, res) => {
-  res.send('Hello World! Steven');
+  res.send('Hello World! Steven app.js');
 });
 
-
+// app.use(express.json());
 app.use('/users', Routes.UserRoutes);
 app.use('/api', Routes.ApiRoutes);
 
 
 app.listen(port, () => {
-  console.log(`Aplicación de ejemplo en el puerto: ${port}`);
+  console.log(`Aplicación de ejemplo en el puerto: app.js ${port}`);
 });
