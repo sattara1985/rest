@@ -1,8 +1,11 @@
 // funciones que resulevan el problemA
+const users = require('../models/UserFakeData')
+
 
 module.exports = {
     getUsers: (req, res) => {
-        res.status(200).send(['Usuario Falso','Usuario Falso','userControllers']);
+        res.status(200).send(users);
+        //res.json(users)
       },
     getOneUser: (req, res) => {},
     createUser: (req, res) => {},
