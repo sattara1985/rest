@@ -5,5 +5,5 @@ const ApiRoutes=require('./ApiRoutes');
 module.exports={
     UserRoutes,
     ApiRoutes,
-}
+};
 
