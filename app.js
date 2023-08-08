@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
   res.send('Hello World! Steven app.js');
 });
 
-// app.use(express.json());
+app.use(express.json());
 app.use('/users', Routes.UserRoutes);
 app.use('/api', Routes.ApiRoutes);
 

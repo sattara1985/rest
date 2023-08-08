@@ -26,8 +26,72 @@ module.exports = {
      
       //console.log(usersData)
     },
-    createUser: (req, res) => {},
-    putUser: (req, res) => {},
-    updateUser: (req, res) => {},
-    deleteUser: (req, res) => {},
+    createUser: (req, res) => {
+      const newUser = req.body
+
+      if(newUser.name.length>2){
+        users.push(newUser)
+        res.status(200).send({message:'Usuario creado satisfactoriamente!'})
+      }else{
+        res.status(400).send({message:'nombre no valido debe ser mde 3 o mas caracteres'})
+      }
+      
+    },
+    putUser: (req, res) => {
+      const idUser = req.params.id
+      const { name, email, password } = req.body
+
+      // Obtenemos la posición del usuario en el arreglo
+      const oldUserPosition = users.findIndex(element => element.id == idUser)
+
+      if(!oldUserPosition) {
+        res.status(400).send({message: 'Usuario no existe'})
+      }
+
+      if(name.length > 2){
+        users[oldUserPosition].name = name
+        users[oldUserPosition].email = email
+        users[oldUserPosition].password = password
+  
+        res.status(200).send({message: 'Usuario modificado'})
+      }else {
+        res.status(400).send({message: 'Nombre del usuario debe ser de 3 o más caracteres'})
+      }
+      
+    },
+    updateUser: (req, res) => {
+      const idUser = req.params.id
+      const { name } = req.body
+
+      // Obtenemos la posición del usuario en el arreglo
+      const oldUserPosition = users.findIndex(element => element.id == idUser)
+
+      if(!oldUserPosition) {
+        res.status(400).send({message: 'Usuario no existe'})
+      }
+
+      if(name.length > 2){
+        users[oldUserPosition].name = name
+  
+        res.status(200).send({message: 'Nombre del Usuario modificado'})
+      }else {
+        res.status(400).send({message: 'Nombre del usuario debe ser de 3 o más caracteres'})
+      }
+    
+    },
+    deleteUser: (req, res) => {
+
+      const idUser = req.params.id
+
+      // Obtenemos la posición del usuario en el arreglo
+      const oldUserPosition = users.findIndex(element => element.id == idUser)
+
+      if(!oldUserPosition) {
+        res.status(400).send({message: 'Usuario no existe'})
+      }
+
+      users.splice(oldUserPosition,1)
+
+      res.status(200).send({message: 'Usuario eliminado!'})
+    },
 };
