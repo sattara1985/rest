@@ -19,4 +19,4 @@ const users =[
     },
 ]
 
-exports.mudole = users
+exports.module = users
